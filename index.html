@@ -133,6 +133,44 @@
             border-color: #8b5cf6;
             color: white;
         }
+
+        /* Mobile Optimizations */
+        @media (max-width: 640px) {
+            /* Improve hero title readability on small phones */
+            h1 {
+                font-size: 3.5rem;
+                line-height: 1.1;
+            }
+            
+            /* Better touch targets for mobile */
+            .play-btn {
+                width: 4rem;
+                height: 4rem;
+            }
+            
+            /* Optimize filter button spacing */
+            .filter-btn {
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+            
+            /* Better mobile menu spacing */
+            #mobile-menu {
+                padding: 2rem;
+            }
+            
+            /* Ensure video cards are properly sized */
+            .video-card {
+                min-height: 400px;
+            }
+        }
+
+        /* Tablet optimizations */
+        @media (min-width: 641px) and (max-width: 1024px) {
+            h1 {
+                font-size: 5rem;
+            }
+        }
     </style>
 </head>
 
@@ -243,7 +281,7 @@
         </div>
 
         <!-- Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
+        <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8" id="portfolio-grid">
 
             <!-- VIDEO 1: High-Retention Short-Form Edit -->
             <div class="group cursor-pointer portfolio-item" data-category="shorts" onclick="openVideo('1157931527')">
@@ -511,6 +549,32 @@
                         <p class="text-sm text-gray-500 uppercase tracking-widest mt-1">High Retention</p>
                     </div>
                     <span class="text-xs border border-white/20 px-2 py-1 rounded text-gray-400">Shorts</span>
+                </div>
+            </div>
+
+            <!-- VIDEO 9: Crypto Edit - Arabic Motion Graphics -->
+            <div class="group cursor-pointer portfolio-item" data-category="animation shorts" onclick="openVideo('1160786972')">
+                <div class="relative aspect-[9/16] bg-black overflow-hidden border border-white/10 video-card">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 z-10">
+                    </div>
+                    <!-- Real Thumbnail -->
+                    <img src="https://via.placeholder.com/640x1138/1a1a1a/8b5cf6?text=Loading..." alt="Crypto Edit - Arabic Motion Graphics"
+                        class="w-full h-full object-contain opacity-60 group-hover:scale-105 transition-transform duration-700 ease-out"
+                        loading="lazy">
+                    <div class="absolute inset-0 flex items-center justify-center z-20">
+                        <div
+                            class="play-btn w-16 h-16 rounded-full border border-white flex items-center justify-center text-white transition-all duration-300 bg-black/30 backdrop-blur-md">
+                            <i class="fa-solid fa-play"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 flex justify-between items-start">
+                    <div>
+                        <h3 class="text-xl font-bold">Crypto Edit - Arabic Motion Graphics</h3>
+                        <p class="text-sm text-gray-500 uppercase tracking-widest mt-1">Motion Design / Arabic</p>
+                    </div>
+                    <span class="text-xs border border-white/20 px-2 py-1 rounded text-gray-400">Animation</span>
                 </div>
             </div>
 
@@ -829,7 +893,7 @@
             if (!videoIdOrUrl.includes('.')) {
                 // It's a video ID (Vimeo or YouTube)
                 // 1. Set Iframe for Vimeo
-                iframe.src = `https://player.vimeo.com/video/${videoIdOrUrl}?autoplay=1&muted=1&byline=0&portrait=0`;
+                iframe.src = `https://player.vimeo.com/video/${videoIdOrUrl}?autoplay=1&byline=0&portrait=0`;
                 iframe.classList.remove('hidden');
                 videoPlayer.classList.add('hidden');
                 videoPlayer.pause();
